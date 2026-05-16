@@ -25,27 +25,27 @@ PREFERENCES_FILE = "kroger_preferences.json"
 def get_client_credentials_client() -> KrogerAPI:
     """Get or create a client credentials authenticated client for public data"""
     global _client_credentials_client
-    
+
     if _client_credentials_client is not None and _client_credentials_client.test_current_token():
         return _client_credentials_client
-    
+
     _client_credentials_client = None
-    
+
     try:
         load_and_validate_env(["KROGER_CLIENT_ID", "KROGER_CLIENT_SECRET"])
         _client_credentials_client = KrogerAPI()
-        
+
         # Try to load existing token first
         token_file = ".kroger_token_client_product.compact.json"
         token_info = load_token(token_file)
-        
+
         if token_info:
             # Test if the token is still valid
             _client_credentials_client.client.token_info = token_info
             if _client_credentials_client.test_current_token():
                 # Token is valid, use it
                 return _client_credentials_client
-        
+
         # Token is invalid or not found, get a new one
         token_info = _client_credentials_client.authorization.get_token_with_client_credentials("product.compact")
         return _client_credentials_client
@@ -55,43 +55,43 @@ def get_client_credentials_client() -> KrogerAPI:
 
 def get_authenticated_client() -> KrogerAPI:
     """Get or create a user-authenticated client for cart operations
-    
+
     This function attempts to load an existing token or prompts for authentication.
     In an MCP context, the user needs to explicitly call start_authentication and
     complete_authentication tools to authenticate.
-    
+
     Returns:
         KrogerAPI: Authenticated client
-        
+
     Raises:
         Exception: If no valid token is available and authentication is required
     """
     global _authenticated_client
-    
+
     if _authenticated_client is not None and _authenticated_client.test_current_token():
         # Client exists and token is still valid
         return _authenticated_client
-    
+
     # Clear the reference if token is invalid
     _authenticated_client = None
-    
+
     try:
         load_and_validate_env(["KROGER_CLIENT_ID", "KROGER_CLIENT_SECRET", "KROGER_REDIRECT_URI"])
-        
+
         # Try to load existing user token first
         token_file = ".kroger_token_user.json"
         token_info = load_token(token_file)
-        
+
         if token_info:
             # Create a new client with the loaded token
             _authenticated_client = KrogerAPI()
             _authenticated_client.client.token_info = token_info
             _authenticated_client.client.token_file = token_file
-            
+
             if _authenticated_client.test_current_token():
                 # Token is valid, use it
                 return _authenticated_client
-            
+
             # Token is invalid, try to refresh it
             if "refresh_token" in token_info:
                 try:
@@ -102,7 +102,7 @@ def get_authenticated_client() -> KrogerAPI:
                 except Exception:
                     # Refresh failed, need to re-authenticate
                     _authenticated_client = None
-        
+
         # No valid token available, need user-initiated authentication
         raise Exception(
             "Authentication required. Please use the start_authentication tool to begin the OAuth flow, "

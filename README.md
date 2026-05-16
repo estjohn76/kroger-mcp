@@ -49,7 +49,7 @@ Edit Claude Desktop's configuration file:
       ],
       "env": {
         "KROGER_CLIENT_ID": "your_client_id",
-        "KROGER_CLIENT_SECRET": "your_client_secret", 
+        "KROGER_CLIENT_SECRET": "your_client_secret",
         "KROGER_REDIRECT_URI": "http://localhost:8000/callback",
         "KROGER_USER_ZIP_CODE": "10001"
       }
@@ -85,7 +85,7 @@ Then, edit Claude Desktop's configuration file:
       ],
       "env": {
         "KROGER_CLIENT_ID": "your_client_id",
-        "KROGER_CLIENT_SECRET": "your_client_secret", 
+        "KROGER_CLIENT_SECRET": "your_client_secret",
         "KROGER_REDIRECT_URI": "http://localhost:8000/callback",
         "KROGER_USER_ZIP_CODE": "10001"
       }
@@ -259,7 +259,7 @@ Since the Kroger API doesn't provide cart viewing functionality, this server mai
    ```
    User: "Add milk to my cart"
    Assistant: [Uses search_products, then add_items_to_cart]
-   
+
    User: "Add bread, eggs, and cheese to my cart"
    Assistant: [Uses search_products for each, then bulk_add_to_cart]
    ```
@@ -268,7 +268,7 @@ Since the Kroger API doesn't provide cart viewing functionality, this server mai
    ```
    User: "What's in my cart?"
    Assistant: [Uses view_current_cart tool to see local memory]
-   
+
    User: "I placed the order on the Kroger website"
    Assistant: [Uses mark_order_placed tool, moving current cart to the order history]
    ```
