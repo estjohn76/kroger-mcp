@@ -16,7 +16,6 @@ Environment Variables Required:
 - KROGER_USER_ZIP_CODE: Default zip code for location searches (optional)
 """
 
-import sys
 from fastmcp import FastMCP
 
 # Import all tool modules
