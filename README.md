@@ -2,7 +2,7 @@
 
 ![Logo](media/harper_logo.jpeg)
 
-A [FastMCP](https://github.com/jlowin/fastmcp) server that provides AI assistants like Claude with access to Kroger's grocery shopping functionality through the Model Context Protocol ([MCP](https://docs.anthropic.com/en/docs/agents-and-tools/mcp)). This server enables AI assistants to find stores, search products, manage shopping carts, and access Kroger's comprehensive grocery data via the [kroger-api](https://github.com/CupOfOwls/kroger-api) python library.
+A [FastMCP](https://github.com/jlowin/fastmcp) server that provides AI assistants like Claude with access to Kroger's grocery shopping functionality through the Model Context Protocol ([MCP](https://docs.anthropic.com/en/docs/agents-and-tools/mcp)). This server enables AI assistants to find stores, search products, manage shopping carts, and access Kroger's comprehensive grocery data via the [kroger-api](https://github.com/estjohn76/kroger-api) python library.
 
 ## 📺 Demo
 
@@ -67,7 +67,7 @@ Benefits of this method:
 #### Option 2: Using uv with a Local Clone
 First, clone locally:
 ```bash
-git clone https://github.com/CupOfOwls/kroger-mcp
+git clone https://github.com/estjohn76/kroger-mcp
 ```
 
 Then, edit Claude Desktop's configuration file:
@@ -108,7 +108,7 @@ pip install kroger-mcp
 
 ```bash
 # Clone the repository
-git clone https://github.com/CupOfOwls/kroger-mcp
+git clone https://github.com/estjohn76/kroger-mcp
 cd kroger-mcp
 
 # Install with uv (recommended)
@@ -289,4 +289,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 This is an unofficial MCP server for the Kroger Public API. It is not affiliated with, endorsed by, or sponsored by Kroger.
 
-For questions about the Kroger API, visit the [Kroger Developer Portal](https://developer.kroger.com/) or read the [kroger-api](https://github.com/CupOfOwls/kroger-api) package documentation.
+For questions about the Kroger API, visit the [Kroger Developer Portal](https://developer.kroger.com/) or read the [kroger-api](https://github.com/estjohn76/kroger-api) package documentation.

@@ -8,7 +8,7 @@ version = "0.2.0"
 description = "FastMCP server for Kroger API integration"
 license = {file = "LICENSE"}
 authors = [
-    {name = "Stephen Thoemmes", email = "thoemmes.stephen@gmail.com"},
+    {name = "E", email = "none@gmail.com"},
 ]
 readme = "README.md"
 requires-python = ">=3.10"
@@ -27,7 +27,7 @@ classifiers = [
 ]
 
 dependencies = [
-    "fastmcp>=2.0.0",
+    "fastmcp>=2.8.1",
     "kroger-api>=0.2.0",
     "requests",
     "pydantic>=2.0.0",
@@ -47,9 +47,9 @@ kroger-mcp = "kroger_mcp.server:main"
 kroger-mcp-cli = "kroger_mcp.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/CupOfOwls/kroger-mcp"
-Repository = "https://github.com/CupOfOwls/kroger-mcp"
-Issues = "https://github.com/CupOfOwls/kroger-mcp/issues"
+Homepage = "https://github.com/estjohn76/kroger-mcp"
+Repository = "https://github.com/estjohn76/kroger-mcp"
+Issues = "https://github.com/estjohn76/kroger-mcp/issues"
 Kroger_Documentation = "https://developer.kroger.com/documentation/public/"
 
 [tool.hatch.build.targets.wheel]
